@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, X } from "lucide-react";
+import { Terminal, X } from "lucide-react";
 import ChatInterface from "./components/ChatInterface";
 import LoginForm from "./components/LoginForm";
 import Navbar from "./components/Navbar";
@@ -20,7 +20,7 @@ export default function Home() {
         className="absolute top-4 right-4 z-50 p-2 bg-black text-green-500 border border-green-500 hover:bg-green-500 hover:text-black transition-all duration-200 shadow-[0_0_10px_rgba(0,255,0,0.2)] hover:shadow-[0_0_20px_rgba(0,255,0,0.5)]"
         aria-label={isRightPanelOpen ? "Close chat panel" : "Open chat panel"}
       >
-        {isRightPanelOpen ? <X size={20} /> : <MessageCircle size={20} />}
+        {isRightPanelOpen ? <X size={20} /> : <Terminal size={20} />}
       </button>
 
       <div className="flex flex-1 overflow-hidden">
