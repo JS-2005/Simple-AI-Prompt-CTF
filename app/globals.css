@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #00ff00;
+  /* Neon Green */
+  --border-color: #00ff00;
+  --secondary: #111111;
+  --muted: #003300;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-border-color: var(--border-color);
+  --color-secondary: var(--secondary);
+  --color-muted: var(--muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #000000;
+    --foreground: #00ff00;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: inherit;
+  /* Use layout font */
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Custom Utilities for Hacking Theme */
+@layer utilities {
+  .text-neon {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+  }
+
+  .border-neon {
+    box-shadow: 0 0 5px #00ff00;
+  }
+
+  .scanline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom,
+        transparent 50%,
+        rgba(0, 0, 0, 0.5) 50%);
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.15;
+  }
+}
+
+/* Global Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border: 1px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-color);
+}
